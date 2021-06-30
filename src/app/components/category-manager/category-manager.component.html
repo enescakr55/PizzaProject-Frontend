@@ -1,0 +1,34 @@
+<div class="giris">
+    <div class="logo">
+        <img width="150px" src="/assets/Logo.png">
+    </div>
+    <div class="form">
+        <hr style="max-width: 500px; height: 1px; display: inline-block; width: 100%;"><br>
+        <div class="mainForm">
+            <div class="mb-3 formElemanlari">
+                <label for="categoryname" class="form-label" style="color:white;">Kategori Adı</label>
+                <input type="text" class="form-control" id="categoryname" [(ngModel)]="txtCategoryName" placeholder="Eklenecek kategorinin adını giriniz">
+              </div><br>
+              <div style="text-align: left; max-width: 400px; display: inline-block; width: 100%;"><button (click)="addCategory()" type="button" class="btn btn-success">Kategoriyi Ekle</button></div>
+        </div>   
+    </div>
+</div><br>
+<div style="text-align: center;">
+  <p><b><i class="bi bi-exclamation-triangle"></i> Bir kategoriyi silmek için o kategorideki tüm öğeleri silmelisiniz.</b></p>
+<div style="max-width: 450px; width:100%; display: inline-block;">
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Kategori Adı</th>
+        <th scope="col">Sil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td>{{category.categoryName}}</td>
+        <td><button (click)="deleteCategory(category)" class="btn btn-danger">Sil</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

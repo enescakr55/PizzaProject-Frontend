@@ -1,0 +1,42 @@
+<div  style="text-align: center;">
+    <div *ngIf="isLoggedLoaded==false" class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="islogged == false && isLoggedLoaded == true"class="giris">
+    <div class="logo">
+        <img width="150px" src="/assets/Logo.png">
+    </div>
+    <div class="form">
+        <hr style="max-width: 500px; height: 1px; display: inline-block; width: 100%;"><br>
+        <div class="mainForm">
+            <div class="mb-3 formElemanlari">
+                <label for="phoneNumber" class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="txtUsername" [(ngModel)]="txtUsername" placeholder="Kullanıcı Adınız">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label for="password" class="form-label">Parola</label>
+                <input type="password" class="form-control" id="txtPassword" [(ngModel)]="txtPassword" placeholder="Şifreniz">
+              </div><br>
+              <div style="text-align: left; max-width: 400px; display: inline-block; width: 100%;"><button (click)="login()" type="button" class="btn btn-success">Giriş Yap</button></div>
+        </div>   
+    </div>
+</div>
+<div style="text-align: center;" *ngIf="islogged">
+    <div class="logo">
+        <img width="150px" src="/assets/Logo.png">
+    </div>
+    <h2>Hesap Bilgileriniz</h2>   <br>
+    <div style="text-align: left; display: inline-block; max-width: 250px; width: 100%;" *ngIf="currentUser">
+
+        <b>Ad : </b> {{currentUser.firstName}}       <br>
+        <b>Soyad : </b> {{currentUser.lastName}}   <br>
+        <b>Adres : </b> {{currentUser.address}}   <br>
+        <b>Telefon Numarası : </b>{{currentUser.phoneNumber}} <br> <br>
+        <div style="text-align: center;"><button routerLink="/accountupdate" class="editProfile"><i class="bi bi-pencil-square"></i> Hesap Bilgilerini Düzenle</button></div> 
+    </div>
+
+
+
+
+</div>

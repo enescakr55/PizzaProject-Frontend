@@ -1,0 +1,117 @@
+<div *ngIf="showTracker == false">
+<div *ngIf="showInfoAndPay == false" style="text-align: center;">
+    <p style="font-size: 30px; font-family: sans-serif; font-weight: bold;">Sepetiniz</p>
+    <div class="mainDiv" style="border-radius:10px; ">
+        <div>
+            <br>
+            <div *ngIf="cartItemCount() == 0" class="productsDiv"
+                style="text-align: center; font-size:20px; padding-bottom: 5px;">
+                <div style="border-bottom: 1px solid white; padding-bottom: 5px;">Sepetiniz boş.</div><br>
+                <img src="/assets/pizza2.png" style="width: 150px; height: 150px;">
+            </div>
+            <div *ngIf="cartItemCount() != 0">
+                <div *ngFor="let pizza of pizzas" class="productsDiv" style="padding-bottom: 5px;"><img
+                        src="/assets/pizza.jpg" style="width: 50px; height: 50px;">
+                    {{pizza.pizzaName}}
+                    <div>
+                        <span style="margin-right: 10px;" class="badge bg-success">{{countByProductId(pizza.id)}}
+                            adet</span>
+                        <span style="margin-right: 10px;" class="badge rounded-pill bg-primary">{{pizza.price * countByProductId(pizza.id)}}
+                            ₺ </span>
+                            <span (click)="removeCart(pizza.id)" style="cursor: pointer;"class="badge rounded-pill bg-danger"><i class="bi bi-trash"></i> Sepetten Sil</span>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <br><br>
+            <div *ngIf="cartItemCount() != 0" class="productsDiv" style="padding-bottom: 5px;"><img
+                    src="/assets/money.png" style="width: 50px; height: 50px;">
+                Toplam Fiyat <span class="badge rounded-pill bg-primary">{{totalPrice}} ₺</span>
+            </div>
+        </div>
+        <div *ngIf="cartItemCount() != 0" style="text-align: right; margin: 10px; max-width: 550px;">
+            <button style="margin-right: 7px;" (click)="clearCart()" type="button" class="btn btn-sm btn-danger">Sepeti
+                Temizle</button>
+            <button type="button" (click)="showInfoAndPayToggler(true)" class="btn btn-sm btn-primary">Sipraişi Onayla</button>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="showInfoAndPay == true" style="text-align: center;">
+    <p style="font-size: 30px; font-family: sans-serif; font-weight: bold;">Bilgileriniz</p>
+    
+    <div class="mainDiv" style="border-radius:10px; ">
+        <br>
+        <div class="alert alert-primary" role="alert" *ngIf="islogged" style="font-size: 15px;">Formu hesap bilgileriniz ile otomatik doldurmak ister misiniz ? <button (click)="fillForm()" class="btn btn-secondary btn-sm">Otomatik Doldur</button></div>
+        <div class="alert alert-primary" role="alert" *ngIf="islogged != true" style="font-size: 15px;">Siparişlerinizi değerlendirebilmek, sipariş geçmişine eklemek ve kişi bilgileri formunu otomatik doldurmak için sipariş vermeden önce hesabınıza giriş yapabilirsiniz.<button routerLink="/login" class="btn btn-secondary btn-sm">Giriş Yap</button></div>
+        <div class="mb-3 textboxMargin">
+            <label for="firstName" class="form-label">Adınız</label>
+            <input [(ngModel)]="txtFirstName" type="text" class="form-control" id="firstName"
+                placeholder="Adınızı Girin">
+        </div>
+        <div class="mb-3 textboxMargin">
+            <label for="lastName" class="form-label">Soyadınız</label>
+            <input [(ngModel)]="txtLastName" type="text" class="form-control" id="lastName"
+                placeholder="Soyadınızı Girin">
+        </div>
+        <div class="mb-3 textboxMargin">
+            <label for="phoneNumber" class="form-label">Telefon Numaranız</label>
+            <input [(ngModel)]="txtPhoneNumber" type="text" class="form-control" id="phoneNumber"
+                placeholder="Telefon Numaranızı Girin">
+                <p style="text-align:left; font-size:12px;">* Siparişinizde sorun olması halinde iletişimi bu numara üzerinden gerçekleştireceğiz.</p>
+        </div>
+        <div class="mb-3 textboxMargin">
+            <label for="address" class="form-label">Adresiniz</label>
+            <textarea [(ngModel)]="txtAddress" class="form-control" id="address" rows="3"></textarea>
+        </div>
+        <div class="mb-3 textboxMargin">
+            <label for="bilgi" class="form-label">Sipariş için ek bilgi</label>
+            <textarea [(ngModel)]="txtBilgi" class="form-control" id="bilgi" rows="3"></textarea>
+        </div>
+        <div><button class="btn btn-success" (click)="kapidaOdeme()">Kapıda Ödeme</button>&nbsp;<button (click)="kartileOdeme()" class="btn btn-success">Kredi Kartı ile Ödeme</button></div><br>
+        <div *ngIf="payWithCard == true">
+        <div class="row">
+            <div class="col-md-4"><img style="width:200px;"src="/assets/creditcard.png"></div>
+            <div class="col-md-8">
+                <div class="mb-3 textboxMargin">
+                    <label for="cardNumber" class="form-label">Kart Numarası</label>
+                    <input [(ngModel)]="txtCardNumber" type="text" class="form-control" id="cardNumber"
+                        placeholder="Kart Numaranızı Girin">
+                </div>
+                <div class="mb-3 textboxMargin">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input [(ngModel)]="txtCvv" type="text" class="form-control" id="cvv"
+                        placeholder="CVV Kodunu Girin">
+                </div>
+            </div>
+        </div>
+            <div class="mb-3 textboxMargin">
+                <label for="fullName" class="form-label">Kart Üstündeki İsim</label>
+                <input [(ngModel)]="txtFullName" type="text" class="form-control" id="fullName"
+                    placeholder="Kart Sahibinin İsmini Giriniz">
+            </div>
+            <div class="mb-3 textboxMargin">
+                <label for="lastdate" class="form-label">Son Kullanma Tarihi (mm/yy)</label>
+                <input [(ngModel)]="txtLastDate" type="text" class="form-control" id="lastdate"
+                    placeholder="mm/yy şeklinde kartın son kullanma tarihi">
+            </div>
+    </div>
+
+            <div *ngIf="cartItemCount() != 0" style="text-align: right; margin: 10px; max-width: 600px;">
+                <button (click)="showInfoAndPayToggler(false)" type="button" style="margin-right:10px;"
+                    class="btn btn-sm btn-danger">Geri</button>
+                <button (click)="createPizzaOrder()" type="button" class="btn btn-sm btn-primary">Siparişi Onayla</button>
+            </div>
+        
+
+    </div>
+
+</div>
+</div>
+<div *ngIf="showTracker == true" style="text-align: center;">
+    <div>
+        <div><img src="/assets/Logo.png" width="150px"></div>
+        <div>Siparişinizi Aldık. En kısa sürede size ulaştıracağız. <br> <b>Pizza Takip Kodunuz : {{getLastTrackerCode()}}</b> <p style="font-size:12px;">Tarayıcınızın verilerini temizlemediğiniz sürece son siparişinizi takip koduna ihtiyaç olmadan pizza takip menüsü üzerinden takip edebilirsiniz</p></div>
+    </div>
+</div>

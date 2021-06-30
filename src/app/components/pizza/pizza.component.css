@@ -1,0 +1,45 @@
+@media screen and (min-width: 361px) {
+.pizzaDiv {
+    width: 30%;
+    min-width:150px;
+    max-width: 250px;
+    display:inline-block;
+    margin-left:10px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 4px 2px #a8a8a8;
+    background: transparent;
+    border-radius: 15px;
+}
+}
+  @media screen and (max-width: 520px) {
+    .pizzaDiv {
+        width: calc(93%/2);
+        min-width:150px;
+        max-width: 350px;
+        display:inline-block;
+        margin-bottom: 10px;
+        box-shadow: 1px 1px 4px 2px #a8a8a8;
+        background: transparent;
+        border-radius: 15px;
+    }
+  }
+  @media screen and (max-width: 361px) {
+    .pizzaDiv {
+        width: 100%;
+        min-width:150px;
+        max-width: 350px;
+        display:inline-block;
+        margin-bottom: 10px;
+    }
+  }
+  .FilterButton {
+      display: none;
+  }
+  @media screen and (max-width: 768px) {
+    .FilterButton {
+        display: block;
+    }
+    }
+    .pizzaImage {
+      border-radius: 15px 15px 0px 0px;
+    }

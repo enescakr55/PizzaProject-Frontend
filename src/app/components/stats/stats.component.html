@@ -1,0 +1,14 @@
+<div class="container-md">
+    <div style="text-align: center;"><img src="/assets/Logo.png" width="150px"><br>
+    <b style="font-size:20px;">Site İstatistikleri</b>
+    <hr>
+    
+    </div> <br>
+    
+    <b>Toplam Kazanç : </b> {{totalPrice}} TL<br>
+    <b>Toplam Alınan Sipariş Sayısı : </b> Toplam {{alinanSiparisSayisi}} sipariş alındı. <br>
+    <b>Toplam Satılan Ürün Sayısı : </b> Toplam {{satilanPizzaSayisi}} pizza satıldı. <br>
+    <b >En Çok Satılan Ürün : </b> <p style="display:inline;" *ngIf="encoksatilanurun && encoksatilanurun.pizzaName">{{encoksatilanurun.pizzaName}} -->> {{encoksatilanurunadet}} tane satıldı</p> &nbsp; <span style="cursor:pointer;" *ngIf="encoksatilanurun" routerLink="/pizzadetail/{{encoksatilanurun.id}}" class="badge rounded-pill bg-secondary"><i class="bi bi-emoji-smile"></i> Ürün detayına git</span><br>
+    <b *ngIf="enazsatilanurun">En Az Satılan Ürün : </b> <p style="display:inline;" *ngIf="enazsatilanurun && enazsatilanurun.pizzaName">{{enazsatilanurun.pizzaName}} -->> {{enazsatilanurunadet}} tane satıldı</p> &nbsp; <span style="cursor:pointer;" *ngIf="enazsatilanurun" routerLink="/pizzadetail/{{enazsatilanurun.id}}" class="badge rounded-pill bg-secondary"><i class="bi bi-emoji-frown"></i> Ürün detayına git</span> <br>
+    
+</div>

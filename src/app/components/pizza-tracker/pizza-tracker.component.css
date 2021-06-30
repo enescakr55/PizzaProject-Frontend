@@ -1,0 +1,10 @@
+.mainTrackerDiv {
+    text-align: center;
+    padding:10px;
+}
+.statusDiv {
+    text-align: left;
+    max-width:300px;
+    width: 100%;
+    display: inline-block;
+}

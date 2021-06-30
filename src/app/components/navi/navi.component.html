@@ -1,0 +1,103 @@
+<link href="//use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+<div style="text-align:center;"><img src="/assets/bg.jpg" width="100%" style="height:120px; object-fit:cover; object-position:left bottom;"></div>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light" style="position: sticky; top:0px; z-index: 10;">
+    <div class="container-fluid">
+    <img src="assets/pizza.jpg" style="width: 50px; height: 50px; margin-right: 20px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pizzas" role="button" aria-expanded="false">
+             <b>Pizzalar</b> 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/cartandpay" class="nav-link" role="button" aria-expanded="false">
+              <b>Sepetim <span class="badge bg-secondary">{{cartItemCount()}}</span></b>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/pizzatracker" class="nav-link" role="button" aria-expanded="false">
+              <b>Pizza Takip</b>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isLogged()">
+            <a routerLink="/orderhistory" class="nav-link" role="button" aria-expanded="false">
+              <b>Sipariş Geçmişi</b>
+            </a>
+          </li>
+        </ul>
+        <div class="d-flex">
+
+          <div class="btn-group" style="margin-right: 10px;">
+            
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <div *ngIf="isAdminPerm()">
+              <div class="text-primary" style="text-align: center;">Yetkili İşlemleri</div>
+              <li><hr class="dropdown-divider"></li>
+              <li><a data-bs-toggle="offcanvas" data-bs-target="#offcanvasmanagement" aria-controls="offcanvasRight" class="dropdown-item setPointer">Yönetim Menüsü</a></li>
+              <li><a (click)="toggleAdminMode()" class="dropdown-item setPointer">Yönetim Modu (Aç/Kapat)</a></li>
+              <!--<li><a routerLink="/pizzaAdd" class="dropdown-item">Pizza Ekle</a></li>
+              <li><a routerLink="/stats" class="dropdown-item">İstatistikler</a></li> 
+              
+              <br>
+              <div class="text-primary" style="text-align: center;">Sipariş İşlemleri</div>
+              <li><hr class="dropdown-divider"></li>
+              <li><a routerLink="/getorders" class="dropdown-item">Mevcut siparişler</a></li>
+              <br> -->
+              </div>
+              
+              <div class="text-primary" style="text-align: center;">Hesap</div>
+              <li><hr class="dropdown-divider"></li>
+              <li><a *ngIf="isLogged() == false" routerLink="/login" class="dropdown-item setPointer">Giriş Yap</a></li>
+              <li><a *ngIf="isLogged() == false" routerLink="/register" class="dropdown-item setPointer">Kayıt Ol</a></li>
+              <li><a *ngIf="isLogged()" routerLink="/login" class="dropdown-item setPointer">Hesap Bilgileri</a></li>
+              <li><a *ngIf="isLogged()" (click)="logout()" class="dropdown-item setPointer">Çıkış Yap</a></li>
+             
+            </ul>
+          </div>
+          <input class="form-control me-2" type="search"[(ngModel)]="pizzaName" placeholder="Pizza Ara" aria-label="Search">
+          <button class="btn btn-outline-success setPointer" routerLink="/findPizza/{{pizzaName}}" type="submit">Ara</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+<!--FİLTRELEME İÇİN AÇILIR PENCERE BAŞLANGIÇ-->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Pizza Filtrele</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <app-size-filter></app-size-filter><br>
+    <app-category-filter></app-category-filter>
+  </div>
+</div>
+
+
+<!--YÖNETİM İÇİN AÇILIR PENCERE BAŞLANGIÇ-->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasmanagement" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Yönetim Menüsü</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;" routerLink="/pizzaAdd" class="btn btn-secondary">Yeni pizza ekle</button> <br> <br>
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;"  routerLink="/categorymanager" class="btn btn-secondary">Kategori Yönetimi</button> <br> <br>
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;" routerLink="/stats" class="btn btn-secondary">İstatistikler</button> <br> <br>
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;"routerLink="/getorders" class="btn btn-secondary">Mevcut Siparişler</button> <br> <br>
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;"routerLink="/slidermanager" class="btn btn-secondary">Slider Yönetimi</button> <br> <br>
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;"routerLink="/sizemanager" class="btn btn-secondary">Pizza Boyutu Yönetimi</button> <br> <br>
+    <button data-bs-dismiss="offcanvas" aria-label="Close" style="width: 100%;"routerLink="/statusmanager" class="btn btn-secondary">Durum Yönetimi</button>
+  </div>
+</div>
+<div *ngIf="cartItemCount() != 0" routerLink="/cartandpay" class="sepeteGit"><img src="/assets/carticon.png" style="max-width: 40px;"></div>

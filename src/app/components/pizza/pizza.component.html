@@ -1,0 +1,28 @@
+<app-slider></app-slider>
+    <br>
+  <div class="FilterButton" style="text-align: center;"><button style="width: 100%;"class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Kategori ve Boyuta Göre Filtrele</button></div>
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      
+      <div class="input-group-text">Pizza Adı ile filtrele </div>
+    </div>
+    <input [(ngModel)]="pipePizzaName" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Pizza Adı">
+    <br>
+  </div>
+  <div  style="text-align: center;">
+    <div *ngIf="dataLoaded==false" class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p *ngIf="loadingError"><i class="bi bi-exclamation-triangle" style="font-size:50px; vertical-align: middle;"></i> <b>Ürünler sunucudan getirilemedi</b></p>
+    </div>
+  <div *ngFor="let pizza of pizzas | pizzaFilter:pipePizzaName:getSize():getCategory()" class="card pizzaDiv">
+    <img class="card-img-top pizzaImage" style="height:177px;" alt="..." src="{{pizza.pictureLink}}">
+    <div class="card-body">
+      <h5 class="card-title">{{pizza.pizzaName}}</h5>
+      <p class="card-text"><b>Boyut :</b> {{getSizeName(pizza.sizeId)}} <br> <b>Fiyat : </b>{{pizza.price}} ₺<!--<br>Açıklama : {{pizza.description}} --></p>
+      <a style="margin-right: 5px; vertical-align: bottom; color:white;" (click)="addToCart(pizza.id,pizza.pizzaName)"class="btn btn-sm btn-warning addCartBtn"><i class="bi bi-basket"></i><b> Sepete Ekle</b></a>
+      <a style="margin-top:8px; margin-right: 5px;" href="/pizzadetail/{{pizza.id}}" routerLink="/pizzadetail/{{pizza.id}}" class="btn btn-sm btn-secondary"><b>Detaylar</b></a>
+      <a *ngIf="isAdminMode()" style="margin-top:8px; margin-right: 5px;" routerLink="/pizzaupdate/{{pizza.id}}" class="btn btn-success btn-sm"><b>Güncelle</b></a>
+      <a *ngIf="isAdminMode()" style="margin-top:8px;" (click)="deletePizza(pizza)" class="btn btn-danger btn-sm"><b>Pizzayı Sil</b></a>
+    </div>
+  </div>

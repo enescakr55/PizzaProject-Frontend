@@ -1,0 +1,50 @@
+<div class="filterMenu maxiFilter" style="text-align: center;" >
+  <div style="color:rgb(182, 3, 3)">Pizza Boyutu Tercihiniz</div>
+    <hr>
+    <!--<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+        <div class="marginbottom10" *ngFor="let size of sizes"style="display:inline-block;">
+            <input (click)="selectSize(size.id)"type="radio" class="btn-check" name="btnradio" id="{{size.id}}" autocomplete="off" checked>
+            <label attr.selected="{{isSelected(size.id)}}" class="btn btn-outline-primary" for="{{size.id}}">{{size.sizeName}}</label>
+        </div>
+        <input (click)="removeSizeFilter()" *ngIf="isSizeFilter" type="radio" class="btn-check bg-danger" name="btnradio" id="clearbtn" autocomplete="off" checked>
+        <label *ngIf="isSizeFilter" class="btn btn-outline-primary bg-danger" for="clearbtn">Tercihimi Sıfırla</label>
+      </div> -->
+      <div class="list-group">
+        <a routerLink="/pizzas" (click)="selectSize(size.id)" *ngFor="let size of sizes" class="list-group-item list-group-item-action {{isActive(size.id)}}" aria-current="true">
+            {{size.sizeName}}
+        </a>
+        <a routerLink="/pizzas" (click)="removeSizeFilter()" *ngIf="isSizeFilter" class="list-group-item list-group-item-action bg-danger text-light" tabindex="-1" aria-disabled="true">Filtreyi temizle</a>
+      </div>
+
+</div>
+<div style="text-align: center;" class="miniFilter">
+<a class="btn btn-primary" data-bs-toggle="collapse" href="#filtrelerKucukEkran" role="button" aria-expanded="false" aria-controls="filtrelerKucukEkran">
+  Boyuta Göre Filtrele
+</a>
+</div><br>
+<div class="collapse" id="filtrelerKucukEkran">
+  <div class="card card-body">
+    <div class="filterMenu" style="text-align: center;" >
+      <div style="color:rgb(182, 3, 3)">Pizza Boyutu Tercihiniz</div>
+        <hr>
+        <!--<div class="btn-group-vertical" role="group" aria-label="Basic radio toggle button group">
+            <div class="marginbottom10" *ngFor="let size of sizes"style="display:inline-block;">
+                <input (click)="selectSize(size.id)"type="radio" class="btn-check" name="btnradio" id="{{size.id}}" autocomplete="off" checked>
+                <label attr.selected="{{isSelected(size.id)}}" class="btn btn-outline-primary" for="{{size.id}}">{{size.sizeName}}</label>
+            </div>
+            <input (click)="removeSizeFilter()" *ngIf="isSizeFilter" type="radio" class="btn-check bg-danger" name="btnradio" id="clearbtn" autocomplete="off" checked>
+            <label *ngIf="isSizeFilter" class="btn btn-outline-primary bg-danger" for="clearbtn">Tercihimi Sıfırla</label>
+          </div> -->
+          <div class="list-group">
+            <a style="padding:3px;" routerLink="/pizzas" (click)="selectSize(size.id)" *ngFor="let size of sizes" class="list-group-item list-group-item-action" aria-current="true">
+                {{size.sizeName}}
+            </a>
+            <a routerLink="/pizzas" (click)="removeSizeFilter()" *ngIf="isSizeFilter" class="list-group-item list-group-item-action bg-danger text-light" tabindex="-1" aria-disabled="true">Filtreyi temizle</a>
+          </div>
+    
+    </div>
+  </div>
+</div>
+
+
+

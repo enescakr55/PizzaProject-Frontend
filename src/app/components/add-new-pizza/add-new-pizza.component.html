@@ -1,0 +1,32 @@
+<form [formGroup]="pizzaAddForm">
+    
+<div class="mb-3">
+    <label for="pizzaName" class="form-label">Pizza Adı</label>
+    <input type="text" class="form-control" formControlName="pizzaName" id="pizzaName" placeholder="Pizza Adı">
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Kategori Seç</label>
+    <select class="form-control" formControlName="categoryId" id="categoryId">
+        <option *ngFor="let category of categories" [value]="category.id">{{category.categoryName}}</option>
+      </select>
+  </div>
+  <div class="mb-3">
+    <label for="sizeId" class="form-label">Boyut Seç</label>
+    <select class="form-control" formControlName="sizeId" id="sizeId">
+        <option *ngFor="let size of sizes" [value]="size.id">{{size.sizeName}}</option>
+      </select>
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Fiyat</label>
+    <input type="text" class="form-control" formControlName="price" id="price" placeholder="Fiyat">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Açıklama</label>
+    <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="pictureLink" class="form-label">Resim Linki</label>
+    <input type="text" class="form-control" formControlName="pictureLink" id="pictureLink" placeholder="Resim linki">
+  </div>
+  <button class="btn btn-fill btn-primary" (click)="addPizza()" >Ekle</button>
+</form>

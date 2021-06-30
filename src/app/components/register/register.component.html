@@ -1,0 +1,35 @@
+<div class="kayit">
+    <div class="logo">
+        <img width="150px" src="/assets/Logo.png">
+    </div>
+    <div class="form">
+        <hr style="max-width: 500px; height: 1px; display: inline-block; width: 100%;"><br>
+        <div class="mainForm">
+            <div class="mb-3 formElemanlari">
+                <label for="txtFirstName" class="form-label">Adınız</label>
+                <input type="text" class="form-control" id="txtFirstName" [(ngModel)]="txtFirstName" placeholder="Adınız">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label for="txtLastName" class="form-label">Soyadınız</label>
+                <input type="text" class="form-control" id="txtLastName" [(ngModel)]="txtLastName" placeholder="Soyadınız">
+              </div><br>
+            <div class="mb-3 formElemanlari">
+                <label for="txtUsername" class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="txtUsername" [(ngModel)]="txtUsername" placeholder="Kullanıcı Adınız">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label for="txtPassword" class="form-label">Parola</label>
+                <input type="password" class="form-control" id="txtPassword" [(ngModel)]="txtPassword" placeholder="Şifreniz">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label for="txtAddress" class="form-label">Adresiniz</label>
+                <input type="text" class="form-control" id="txtAddress" [(ngModel)]="txtAddress" placeholder="Adresiniz">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label for="txtPhoneNumber" class="form-label">Telefon Numaranız</label>
+                <input type="text" class="form-control" id="txtPhoneNumber" [(ngModel)]="txtPhoneNumber" placeholder="Telefon Numranız">
+              </div><br>
+              <div style="text-align: left; max-width: 400px; display: inline-block; width: 100%;"><button (click)="register()" type="button" class="btn btn-success">Kayıt Ol</button></div>
+        </div>   
+    </div>
+</div>

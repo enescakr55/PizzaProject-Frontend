@@ -1,0 +1,29 @@
+
+<button (click)="hideCompletedPizzas()" class="btn btn-sm btn-primary">Tamamlanan Siparişleri Gizle</button><button style="margin-left:10px;" (click)="getOrders()" class="btn btn-sm btn-primary">Tüm Siparişleri Göster</button><br><br>
+
+<div *ngFor="let pizzaOrder of pizzaOrders">
+    <div class="siparisDiv">
+    <p style="display: inline;"><b style="font-size: 20px;">Sipariş Bilgileri</b></p> <br> 
+    <b>Adı Soyadı : </b> {{pizzaOrder.order.firstName}} {{pizzaOrder.order.lastName}} <br>
+    <b>Adresi : </b> {{pizzaOrder.order.address}} <br>
+    <b>Telefon Numarası : </b> {{pizzaOrder.order.phoneNumber}} <br>
+    <b>Takip Kodu : </b> {{pizzaOrder.order.orderCode}} <br>
+    <div *ngIf="pizzaOrder.order.desc" style="display: inline;"><b >Ek Bilgiler : </b> {{pizzaOrder.order.desc}} <br></div>
+    <b>Sipariş verme tarihi :</b> {{pizzaOrder.order.date | date:"dd/MM/yyyy HH:mm"}} <br>
+    <b>Toplam Ücret :</b> {{pizzaOrder.order.totalPrice}} <br> 
+    <b>Sipariş Durumu : </b> {{statusNames(pizzaOrder.order.statusId)}}<br>
+    <b>Ödeme Şekli : </b> {{paymentType(pizzaOrder.order.payWithCard)}} <br>
+      <p *ngIf="statuses" style="display: inline;">Durum Güncelle : </p> <button class="btn btn-danger btn-sm" style="display:inline; margin-right: 3px; margin-bottom: 5px;" (click)="updateStatus(pizzaOrder.order.orderCode,status.id)" *ngFor="let status of statuses">{{status.statusName}}</button>
+    <br><br>
+    <div *ngFor="let helper of pizzaOrder.orderHelpers" style="display: inline;">
+        <div *ngIf="pizzas[helper.productId]" class="card pizzaDiv">
+            <img class="card-img-top image" style="height:177px;" alt="..." src="{{pizzas[helper.productId].pictureLink}}">
+            <div class="card-body">
+              <h5 class="card-title">{{pizzas[helper.productId].pizzaName}}</h5>
+              <p class="card-text">Boyut : {{getSizeName(pizzas[helper.productId].sizeId)}} <br> Fiyat : {{pizzas[helper.productId].price}} ₺<!--<br>Açıklama : {{pizza.description}} --></p>
+              <a style="margin-top:8px;" href="/pizzadetail/{{pizzas[helper.productId].id}}" routerLink="/pizzadetail/{{pizzas[helper.productId].id}}" class="btn btn-sm btn-secondary">Detaylar</a>
+            </div>
+          </div>
+    </div><br><br>
+</div>
+</div>

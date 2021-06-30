@@ -1,0 +1,39 @@
+<div class="giris">
+    <div class="logo">
+        <img width="150px" src="/assets/Logo.png">
+    </div>
+    <div class="form">
+        <hr style="max-width: 500px; height: 1px; display: inline-block; width: 100%;"><br>
+        <div class="mainForm">
+            <div class="mb-3 formElemanlari">
+                <label for="statusidstr" class="form-label" style="color:white;">Tanıtıcı Ad</label>
+                <input type="text" class="form-control" id="statusidstr" [(ngModel)]="txtIdStr" placeholder="Tanıtıcı Ad">
+              </div><br>
+            <div class="mb-3 formElemanlari">
+                <label for="statusname" class="form-label" style="color:white;">Durum Adı</label>
+                <input type="text" class="form-control" id="statusname" [(ngModel)]="txtStatusName" placeholder="Durum Adı">
+              </div><br>
+              <div style="text-align: left; max-width: 400px; display: inline-block; width: 100%;"><button (click)="addStatus()" type="button" class="btn btn-success">Durum Ekle</button></div>
+        </div>   
+    </div>
+</div><br>
+<div style="text-align: center;">
+<div style="max-width: 450px; width:100%; display: inline-block;">
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Tanıtıcı Ad</th>
+        <th scope="col">Durum Adı</th>
+        <th scope="col">Sil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let status of statuses">
+        <td>{{status.idStr}}</td>
+        <td>{{status.statusName}}</td>
+        <td><button (click)="deleteStatus(status.id)" class="btn btn-danger">Sil</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

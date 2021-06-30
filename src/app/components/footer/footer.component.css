@@ -1,0 +1,14 @@
+.mainFooter{
+    width: 100%;
+    display: block;
+    background: black;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+.mainElement {
+    display: inline-block;
+    color:white;
+}

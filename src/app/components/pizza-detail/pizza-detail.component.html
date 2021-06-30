@@ -1,0 +1,42 @@
+<div style="text-align: center;">
+<div *ngIf="isLoaded==false">
+  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div *ngIf="pizza" class="card pizzaDiv" style="min-width:150px; width: 100%; max-width: 500px; height:auto; display:inline-block; margin-bottom: 10px;">
+    <img class="card-img-top image" style="width:100%; height:auto; max-height: 500px; max-width: 500px;" alt="..." src="{{pizza.pictureLink}}">
+    <div class="card-body">
+      <h5 class="card-title">{{pizza.pizzaName}}</h5>
+      <p class="card-text">Fiyat : {{pizza.price}} ₺<br>Boyut : {{getSizeName(pizza.sizeId)}} <br>Açıklama : {{pizza.description}}</p>
+      <!--<a (click)="addToCart(pizza.id,pizza.pizzaName)" class="btn btn-primary">Sepete Ekle</a> -->
+      <div (click)="addToCart(pizza.id,pizza.pizzaName)" class="comments"><b><i class="bi bi-basket"></i> Sepete Ekle</b></div>
+    </div>
+    <div data-bs-toggle="modal" data-bs-target="#degerlendirmeler" class="comments"><b><i class="bi bi-star"></i> Değerlendirmeleri Oku</b></div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="degerlendirmeler" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Değerlendirmeler</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="commentInfos.length != 0">
+        <div class="yorumDiv" *ngFor="let comment of commentInfos">
+          <div *ngIf="comment.text != null"><img src="/assets/avatar.png" width="50px" style="border-radius: 30px;"><b> {{comment.username}}</b><br>  
+            {{comment.text}}</div>
+          <div style="font-size:10px; margin-left:2px; display: inline-block;"><i class="bi bi-star"></i> Lezzet Puanı : {{comment.score}} Puan</div>
+        </div>
+      </div>
+      <div *ngIf="commentInfos.length == 0"><b>Henüz bir değerlendirme yapılmamış</b></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>

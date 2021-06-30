@@ -1,0 +1,29 @@
+<div class="addComment">
+    <div class="logo">
+        <img width="150px" src="/assets/Logo.png">
+    </div>
+    <div class="form">
+        <hr style="max-width: 500px; height: 1px; display: inline-block; width: 100%;"><br>
+        <div class="mainForm">
+            <div class="mb-3 formElemanlari">
+                <label  for="txtFirstName" class="form-label">Ad</label>
+                <input type="text" class="form-control" id="txtFirstName" [(ngModel)]="txtFirstName" placeholder="Ad">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label  for="txtLastName" class="form-label">Soyad</label>
+                <input type="text" class="form-control" id="txtLastName" [(ngModel)]="txtLastName" placeholder="Soyad">
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label  for="txtAddress" class="form-label">Adres</label>
+                <textarea type="text" class="form-control" id="txtAddress" [(ngModel)]="txtAddress" placeholder="Adresiniz"></textarea>
+              </div><br>
+              <div class="mb-3 formElemanlari">
+                <label  for="txtPhoneNumber" class="form-label">Telefon Numarası</label>
+                <input type="text" class="form-control" id="txtPhoneNumber" [(ngModel)]="txtPhoneNumber" placeholder="Telefon Numarası">
+              </div><br>
+              <div style="text-align: left; max-width: 400px; display: inline-block; width: 100%;">
+                <button type="button" (click)="updateProfile()" class="btn btn-success">Güncelle</button>
+            </div>
+        </div>   
+    </div>
+</div>

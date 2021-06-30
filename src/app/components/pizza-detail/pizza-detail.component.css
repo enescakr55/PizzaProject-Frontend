@@ -1,0 +1,47 @@
+.pizzaDiv {
+    box-shadow: 1px 1px 4px 2px #a8a8a8;
+    background: transparent;
+    border-radius: 15px;
+}
+.image {
+    border-radius: 15px 15px 0px 0px;
+}
+.comments{
+    box-shadow: 1px 1px 4px 2px #a8a8a8;
+    background: transparent;
+    border-radius: 15px;
+    min-width:150px; 
+    max-width: 700px;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding:10px;
+    box-sizing: border-box;
+}
+.comments:hover{
+    background: rgb(216, 216, 216);
+    cursor:pointer;
+}
+.addCartButton {
+    box-shadow: 1px 1px 4px 2px #a8a8a8;
+    background: transparent;
+    border-radius: 15px;
+    min-width:150px; 
+    max-width: 700px;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding:10px;
+    box-sizing: border-box;
+}
+.addCartButton:hover{
+    background: rgb(216, 216, 216);
+    cursor:pointer;
+}
+.yorumDiv {
+    box-shadow: 1px 1px 7px 3px #cbcbcb;
+    border-radius: 10px;
+    background: #f5f5f5;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #f5f5f5;
+    word-break: break-all;
+}

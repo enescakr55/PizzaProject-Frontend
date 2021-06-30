@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.marginbottom10 {
+    margin-bottom: 10px;
+}
+body {
+    background: rgb(0,0,0);
+    background: -moz-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(49,68,99,1) 50%, rgba(67,67,67,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(49,68,99,1) 50%, rgba(67,67,67,1) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(49,68,99,1) 50%, rgba(67,67,67,1) 100%);
+    background: rgb(240, 240, 247);
+}
+.addCartBtn {
+    background: #ff7f23;
+}
+.addCartBtn:hover{
+    background:#ff9951 ;
+}

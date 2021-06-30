@@ -1,0 +1,15 @@
+.captionStyle {
+    bottom:0px;
+    left:0px;
+    right: 0px;
+    background: rgb(167, 167, 167);
+    opacity: 0.9;
+}
+.campaignMainDiv {
+    display:block;
+}
+@media screen and (max-width: 360px) {
+    .campaignMainDiv {
+        display:block;
+    }
+}

@@ -1,0 +1,20 @@
+<div class="mainTrackerDiv">
+    <div>
+        <img src="/assets/Logo.png" style="width: 150px;"><br><br>
+        <div style="max-width: 600px; display: inline-block; margin-right: 3px;">
+            <label for="firstName" class="form-label"><b>Pizza Takip Kodu</b></label>
+            <input [(ngModel)]="trackerCode" type="text" class="form-control" id="firstName"
+                placeholder="Takip Kodu Giriniz">
+        </div>
+        <button (click)="getOrder()" class="btn btn-primary">Kontrol Et</button>
+    </div>
+    <br><br>
+    <div class="statusDiv" *ngIf="success">
+        <p *ngIf="order"><b>Takip Kodu : {{order.orderCode}}</b></p>
+        <p *ngIf="status"><b >Sipariş Durumu : {{status.statusName}}</b></p>
+        <div style="text-align: center;"><img style="width: 200px;" *ngIf='status.idStr == "alindi"' src="/assets/trackergif.gif"></div>
+        <div style="text-align: left;"><img style="width: 200px;" *ngIf='status.idStr == "hazirlaniyor"' src="/assets/preparing.gif"></div>
+        <div style="text-align: center;"><img style="width: 250px;" *ngIf='status.idStr == "yolacikti"' src="/assets/yolda.gif"></div>
+        <div style="text-align: center;"><img style="width: 200px;" *ngIf='status.idStr == "teslimedildi"' src="/assets/teslimedildi.png"></div>
+    </div>
+</div>

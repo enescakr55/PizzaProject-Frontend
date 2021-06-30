@@ -1,0 +1,19 @@
+.giris {
+    text-align: center;
+}
+.form {
+    text-align: center;
+}
+.formElemanlari{
+    max-width: 400px;
+    width: 100%;
+    display: inline-block;
+}
+.mainForm {
+    display: inline-block;
+    width: 100%;
+    max-width: 450px;
+    background:#134b83;
+    padding:10px;
+    box-shadow: grey 1px 1px;
+}
