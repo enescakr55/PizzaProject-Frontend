@@ -1,7 +1,6 @@
 export const environment = {
   production: true,
-  //siteUrl:"https://localhost:44395/",
-  siteUrl:"https://bsite.net/qqwerty123/",
+  siteUrl:"BURAYA API ADRESİ GELECEK",
   pizzasApi:"api/pizzas/",
   categoriesApi:"api/categories/",
   ordersApi:"api/orders/",
