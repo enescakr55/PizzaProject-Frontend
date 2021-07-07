@@ -30,6 +30,7 @@ import { PizzaUpdateComponent } from './components/pizza-update/pizza-update.com
 import { SliderComponent } from './components/slider/slider.component';
 import { SliderManagerComponent } from './components/slider-manager/slider-manager.component';
 import { SizeManagerComponent } from './components/size-manager/size-manager.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SizeManagerComponent } from './components/size-manager/size-manager.com
     SliderComponent,
     SliderManagerComponent,
     SizeManagerComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

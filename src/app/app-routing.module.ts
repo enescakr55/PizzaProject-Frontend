@@ -1,3 +1,4 @@
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { SizeManagerComponent } from './components/size-manager/size-manager.component';
 import { SliderManagerComponent } from './components/slider-manager/slider-manager.component';
 import { PizzaUpdateComponent } from './components/pizza-update/pizza-update.component';
@@ -15,7 +16,6 @@ import { CartandpayComponent } from './components/cartandpay/cartandpay.componen
 import { PizzaDetailComponent } from './components/pizza-detail/pizza-detail.component';
 import { AddNewPizzaComponent } from './components/add-new-pizza/add-new-pizza.component';
 import { PizzaComponent } from './components/pizza/pizza.component';
-import { NaviComponent } from './components/navi/navi.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { StatsComponent } from './components/stats/stats.component';
@@ -39,6 +39,7 @@ const routes: Routes = [
   {path:"slidermanager",component:SliderManagerComponent,canActivate:[AdminGuard]},
   {path:"sizemanager",component:SizeManagerComponent,canActivate:[AdminGuard]},
   {path:"pizzaupdate/:pizzaid",component:PizzaUpdateComponent,canActivate:[AdminGuard]},
+  {path:"changepassword",component:ChangePasswordComponent},
   {path:"",pathMatch:"full",component:PizzaComponent},
 ];
 

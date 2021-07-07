@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  siteUrl:"BURAYA API ADRESİ GELECEK",
+  siteUrl:"Buraya site adresi yazılacak", //Site Adresinin Sonunda / işareti olmalı https://example.com/
   pizzasApi:"api/pizzas/",
   categoriesApi:"api/categories/",
   ordersApi:"api/orders/",

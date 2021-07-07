@@ -1,4 +1,5 @@
-import { environment } from './../../environments/environment';
+import { environment } from 'src/environments/environment';
+import { ChangePasswordDto } from './../models/changePasswordDto';
 import { SingleResponseModel } from './../models/singleResponseMode';
 import { User } from './../models/user';
 
@@ -21,5 +22,8 @@ export class AuthService {
   }
   updateUser(user:User){
     return this.httpClient.post<ResponseModel>(environment.siteUrl+environment.authApi+"update",user);
+  }
+  changePasswordForLoggedUser(dto:ChangePasswordDto):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(environment.siteUrl+environment.authApi+"changepassword",dto);
   }
 }
