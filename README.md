@@ -1,27 +1,27 @@
 # PizzaFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+### Proje Tanıtımı
+Proje bir pizza satış projesidir.Backend kısmı C# ve ASP ile Frontend kısmı ise 
+ANGULAR ile yazılmıştır. Veritabanı olarak Microsoft SQL Server kullanılmıştır. Proje,
+katmanlı mimariler ile yazılmış olup bu katmanlar DataAccess, Business, Core, Entities ve 
+WebApi katmanıdır. Projenin backend tarafında veritabanı erişimi için Entity Framework, 
+girdi doğrulama için Fluent Validation kullanılmıştır.
 
-## Development server
+### Proje Özellikleri
+• Yetkili hesaba sahip kullanıcılar pizza ekleyebilir, güncelleyebilir ve silebilir.
+• Kullanıcılar hesap oluşturabilir ve profilini düzenleyebilir.
+• Kullanıcı sipariş verirken eğer oturumu açıksa verdiği siparişi sipariş geçmişi üzerinden
+görebilir.
+• Kullanıcı sisteme üye olmadan misafir olarak sipariş verirse siparişini pizza takip kodu 
+üzerinden kontrol edebilir.
+• Kullanıcılar pizzaları kategoriye, boyuta ve ismine göre filtreleyebilir.
+• Kullanıcılar pizzalara yorum yapabilir ve lezzet puanı verebilir.
+• Yetkili hesaba sahip kişiler, toplam kazanç, toplam alınan sipariş sayısı, toplam satılan 
+ürün sayısı, en çok satılan ürün, en az satılan ürün gibi site istatistiklerini görebilirler.
+• Yetkili hesaba sahip kişiler verilen siparişleri görebilir ve mevcut durumunu 
+güncelleyebilirler.
+• Yetkili hesaba sahip kişiler pizza listeleme sayfasına üzerine tıklayınca bir pizzanın 
+detay sayfasına yönlendirecek bir slider ve slidere açıklama ekleyebilirler.
+• Yetkili hesaba sahip kişiler sisteme yeni kategori, durum ve pizza boyutu ekleyip 
+silebilirler.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
