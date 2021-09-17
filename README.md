@@ -20,3 +20,4 @@ girdi doğrulama için Fluent Validation kullanılmıştır.
 - Yetkili hesaba sahip kişiler pizza listeleme sayfasına üzerine tıklayınca bir pizzanın detay sayfasına yönlendirecek bir slider ve slidere açıklama ekleyebilirler.
 - Yetkili hesaba sahip kişiler sisteme yeni kategori, durum ve pizza boyutu ekleyip silebilirler.
 
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Giri%C5%9F%20Sayfas%C4%B1.png)
