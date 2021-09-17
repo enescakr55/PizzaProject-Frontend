@@ -21,3 +21,12 @@ girdi doğrulama için Fluent Validation kullanılmıştır.
 - Yetkili hesaba sahip kişiler sisteme yeni kategori, durum ve pizza boyutu ekleyip silebilirler.
 
 ![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Giri%C5%9F%20Sayfas%C4%B1.png)
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Pizzalar%C4%B1%20Listele1.png)
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Pizza%20detaylar%C4%B1%20sayfas%C4%B1.png)
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Sepet%20g%C3%B6r%C3%BCnt%C3%BCleme%20sayfas%C4%B1.png)
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Sipari%C5%9F%20takip%20sayfas%C4%B1.png)
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/%C4%B0statistikler%20sayfas%C4%B1.png)
+![1](https://raw.githubusercontent.com/enescakr55/PizzaFrontend-StajOdevi/master/ProjeImages/Sipari%C5%9F%20ge%C3%A7mi%C5%9Fim%20sayfas%C4%B1.png)
+
+**Daha fazla resim için ProjeImages klasörüne bakabilirsiniz.**
+
